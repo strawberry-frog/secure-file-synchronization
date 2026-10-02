@@ -2,14 +2,17 @@
 
 A Python client-server project that combines authenticated file access, TLS/X.509 certificate setup, user-specific storage, and automatic file synchronization between clients and a server.
 
-        TLS / X.509
-Client ───────────────► Server
-  │                       │
-Login                 Authentication
-  │                       │
-Upload ──────────────► User Storage
-  │                       │
-Download ◄──────────── File Storage
+## System Architecture
+
+```mermaid
+flowchart LR
+    A["💻 Client"] -->|"TLS / X.509"| B["🖥️ Server"]
+    B --> C["🔐 Authentication"]
+    C --> D["📁 User Storage"]
+
+    A -->|"Upload"| D
+    D -->|"Download"| A
+```
 
 ## Highlights
 
